@@ -37,6 +37,10 @@ module Dry
           __send__(:"visit_#{rule_ast.first}", rule_ast.last, field)
         end
 
+        def visit_rule(rule_ast, field)
+          visit(rule_ast.last, field)
+        end
+
         def visit_and(rule_ast, field)
           push_value_logic!(field, :and) unless mark_required_once!(field, true)
 

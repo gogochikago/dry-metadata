@@ -1,6 +1,5 @@
-require 'dry/equalizer'
-require 'dry/logic/predicate'
+require 'dry/core/constants'
 
 module Undefined
-  Undefined = Dry::Logic::Predicate::Undefined
+  Undefined = Dry::Core::Constants::Undefined
 end

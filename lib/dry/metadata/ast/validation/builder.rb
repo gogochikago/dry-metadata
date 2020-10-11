@@ -14,15 +14,17 @@ module Dry
 
           def initialize(validation)
             @rules_ast = explode_rules_ast(
-              validation.rules.map { |_, value| value.to_ast }
+              validation.rules.map do |_, value|
+                value.ast(nil)
+              end
             )
           end
 
           def explode_rules_ast(rules_ast)
             rules_ast.each_with_index.map do |rule_ast, index|
-              if rule_ast.respond_to?(:each)
+              if rule_ast.respond_to?(:each_index)
                 explode_rules_ast(rule_ast)
-              elsif rules_ast[index - 1] == :schema
+              elsif rules_ast.respond_to?(:each_index) && rules_ast[index - 1] == :schema
                 explode_rules_ast(rules_ast[index].rule_ast)
               else
                 rule_ast

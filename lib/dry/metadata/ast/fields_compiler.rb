@@ -98,7 +98,7 @@ module Dry
         end
 
         def visit_set(_rule_ast, _field)
-          raise 'missing implementation'
+          visit_schema(_rule_ast, _field)
         end
 
         def mark_required_once!(field, is_required)
@@ -112,6 +112,7 @@ module Dry
         end
 
         def add_predicate!(field, predicate, attributes)
+          field[:pattern]=attributes[:regex] if predicate == :format?
           AST::Predicate.add!(field, predicate, attributes)
         end
 

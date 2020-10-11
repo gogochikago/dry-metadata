@@ -16,6 +16,7 @@ module Dry
         @types = args[:types]
         @logic = args[:logic]
         @fields = args[:fields] || []
+        @pattern = args[:pattern]
       end
 
       def optional
@@ -39,6 +40,14 @@ module Dry
       def to_s
         "<name: #{name}, required: #{required?}, types: #{types.inspect}, " \
         "logic: #{logic.inspect}, fields: #{fields.inspect}>"
+      end
+
+      def pattern
+        @pattern
+      end
+
+      def label
+        Inflecto.humanize(name)
       end
     end
   end

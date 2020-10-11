@@ -7,6 +7,7 @@ module Dry
       attr_reader :types
       attr_reader :logic
       attr_reader :fields
+      attr_reader :pattern
 
       alias required? required
 
@@ -40,10 +41,6 @@ module Dry
       def to_s
         "<name: #{name}, required: #{required?}, types: #{types.inspect}, " \
         "logic: #{logic.inspect}, fields: #{fields.inspect}>"
-      end
-
-      def pattern
-        @pattern
       end
 
       def label

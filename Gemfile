@@ -1,6 +1,4 @@
 source 'https://rubygems.org'
-
-# Specify your gem's dependencies in dry-metadata.gemspec
 gemspec
 
 # gem 'dry-validation', github: 'dry-rb/dry-validation', branch: 'master'
@@ -10,6 +8,6 @@ gemspec
 # gem 'dry-core', github: 'dry-rb/dry-core', branch: 'master'
 
 group :test do
-  gem 'simplecov'
+  gem 'rspec'
   gem 'rubocop'
 end

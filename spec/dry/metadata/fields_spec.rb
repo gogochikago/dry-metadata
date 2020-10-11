@@ -56,12 +56,15 @@ RSpec.describe Dry::Metadata::Fields do
                               required: true,
                               types: [],
                               logic: [[:filled?]],
-                              fields: [] },
+                              fields: [],
+                              pattern: nil
+                              },
                             { name: :optional_field,
                               required: false,
                               types: [],
                               logic: [[:filled?]],
-                              fields: [] }])
+                              fields: [],
+                              pattern: nil }])
     end
 
     context 'nested schema' do
@@ -78,10 +81,13 @@ RSpec.describe Dry::Metadata::Fields do
                                 required: true,
                                 types: [:hash?],
                                 logic: [:and, [:hash?], [:schema?]],
+                                pattern: nil,
                                 fields: [{ name: :name,
                                            required: true,
                                            types: [:str?],
-                                           logic: [[:str?]], fields: [] }] }])
+                                           logic: [[:str?]],
+                                           fields: [],
+                                           pattern: nil }] }])
       end
     end
   end

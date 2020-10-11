@@ -27,7 +27,7 @@ module Dry
 
       def to_h
         { name: name, required: required?,
-          types: types, logic: logic, fields: fields.to_a }
+          types: types, logic: logic, fields: fields.to_a, pattern: pattern }
       end
 
       def [](key)
